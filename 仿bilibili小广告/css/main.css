@@ -1,0 +1,47 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.ad{
+    width: 100%;
+    height: 56px;
+    box-shadow: 0 -1px 2px 0 #e7e7e7;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+}
+.ad .container{
+    width: 1160px;
+    height: 100%;
+    margin: 0 auto;
+    line-height: 56px;
+    font-size: 16px;
+    text-align: center;
+}
+.ad .container img{
+    margin-right: 10px;
+    position: relative;
+    top:8px;
+}
+.ad .container #dns{
+    display: inline-block;
+    font-size: 12px;
+    text-decoration: none;
+    margin-left: 10px;
+    color: #fb7299;
+    border: 1px solid #fb7299;
+    border-radius: 5px;
+    line-height: 25px;
+    width: 58px;
+    height: 25px;
+}
+.ad .container #close{
+    position: absolute;
+    font-size: 16px;
+    text-decoration: none;
+    color: darkgray;
+    right: 370px;
+    width: 13px;
+    height: 13px;
+    
+}

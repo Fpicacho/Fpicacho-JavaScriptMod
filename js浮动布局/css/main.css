@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#wrap{
+    overflow: hidden;
+}
+#wrap .item{
+    width: 248px;
+    height: 360px;
+    font-size: 14px;
+}
+#wrap .item .imgCtn{
+    width: 248px;
+    height: 248px;
+    display: table-cell;
+    text-align: center;
+    background: palegreen;
+}
+#wrap .item .title{
+    width: 240px;
+    height: 300px;
+    line-height: 30px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}

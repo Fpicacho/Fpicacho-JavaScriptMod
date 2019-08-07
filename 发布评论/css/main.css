@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+#box{
+    width: 1000px;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    padding: 20px;
+}
+#comment{
+    width: 80%;
+    padding: 10px 10px;
+    font-size: 20px;
+    outline: none;
+}
+.box_top{
+    margin-bottom: 20px;
+}
+#comment_content li{
+    border-bottom: 1px dashed #ccc;
+    width: 800px;
+    color: red;
+    line-height: 45px;
+}
+#comment_content li a{
+    float: right;
+}
