@@ -5,7 +5,7 @@ window.onload = function(){
     // input 失去焦点
     $('score').onblur = function(){
         var value = parseFloat(this.value);
-
+        //isNaN 判断数据类型
         if(isNaN(value)){
             $('prompt').innerHTML = '输入值非法！'
             $('prompt').style.color='red';

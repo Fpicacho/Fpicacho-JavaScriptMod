@@ -11,7 +11,7 @@ window.onload = function(){
             alert('请输入内容');
             return;
         }
-        //创建li标签往ul中向前插入
+        //创建li标签往ul中向前插入 
         var newLi = document.createElement('li');
         newLi.innerHTML = content+'<a href="javascript:void(0);">删除</a>'
         // $('comment_content').appendChild(newLi);
