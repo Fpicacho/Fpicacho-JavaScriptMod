@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>客户端大小</title>
+    </head>
+    <body>
+        <div id="box" style="width:200px;height: 200px;border: 1px solid red;padding: 20px;display: inline-block;"></div>
+        <script>
+            // client  客户端大小 ：指的是元素内容到内边距占据的空间大小
+            // 不包含border大小
+            //clientWidth = width + padding-lift + padding-right
+            //clientHeight = height + padding-top + padding-bottom
+
+            //clientLeft/Top   左/上边框大小
+            var box = document.getElementById('box');
+            var b = document.getElementById('b');
+            console.log(box.clientWidth,box.clientHeight);
+            console.log(box.clientTop,box.clientLeft);
+            console.log(document.documentElement.clientHeight,document.documentElement.clientWidth);
+            //client 只读属性 元素设置了display：none 客户端client属性都为0
+
+            console.time('time');
+            var b = box.clientHeight;
+            for(var i = 0;i < 100000; i++){
+                var a = b
+            }
+            console.timeEnd('time');
+        </script>
+    </body>
+</html>
