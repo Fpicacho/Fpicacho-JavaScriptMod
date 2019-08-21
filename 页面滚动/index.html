@@ -12,10 +12,15 @@
                 border: 1px solid black;
                 overflow: scroll;
             }
+            #back{
+                position: fixed;
+                top:200;
+                left: 30;
+            }
         </style>
 
     </head>
-    <body>
+    <body style="height:3000px">
         <div id="box">
             <p>内容</p>
             <p>内容</p>
@@ -37,11 +42,31 @@
             <p>内容</p>
         </div>
         <button id="but">滚</button>
+        <button id="back">回到顶部</button>
         <script>
             var a = document.getElementById('box');
             var b = document.getElementById('but');
+            var back = document.getElementById('back');
             b.onclick = function(){
                 a.scrollTop += 10;
+            }
+
+            window.onscroll = function(){
+                // console.log(document.documentElement.scrollTop);
+                // console.log(document.body.scrollTop);
+
+                //兼容性代码
+                var docScrollTop = document.documentElement.scrollTop || document.body.scrollTo;
+                console.log(docScrollTop);
+                
+                back.onclick = backtop;
+                function backtop(){
+                    // document.documentElement.scrollTop = 0;
+                    // document.body.scrollTo = 0
+
+                    //简写
+                    document.documentElement.scrollTop = document.body.scrollTo = 0;
+                }
             }
         </script>
     </body>
