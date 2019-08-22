@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            #box{
+                width: 200px;
+                height: 200px;
+                background: palevioletred;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+        <script>
+            var box = document.getElementById('box');
+            // //事件冒泡： 事件由最具体的元素接受,然后向上传播到不具体的节点。
+            // box.onclick = function(){  //div
+            //     box.innerHTML += 'div\n';
+            // }
+            // document.body.onclick = function(){ //body
+            //     box.innerHTML += 'body\n';
+            // }
+            // document.documentElement.onclick = function(){ //html
+            //     box.innerHTML += 'html\n';
+            // }
+            // document.onclick = function(){ //document
+            //     box.innerHTML += 'document\n';
+            // }
+            // window.onclick = function(){ //window
+            //     box.innerHTML += 'window\n';
+            // }
+
+            //事件捕获： 由不具体的节点更快的接收事件，而具体的节点应该最后接受到事件。
+            // addEventListener(事件，方法，开启捕获 默认false)
+            box.addEventListener('click',function(){
+                box.innerHTML += 'div\n'
+            },true);
+            document.body.addEventListener('click',function(){
+                box.innerHTML += 'body\n'
+            },true);
+            document.documentElement.addEventListener('click',function(){
+                box.innerHTML += 'html\n'
+            },true);
+            document.addEventListener('click',function(){
+                box.innerHTML += 'document\n'
+            },true);
+            window.addEventListener('click',function(){
+                box.innerHTML += 'window\n'
+            },true);
+
+            box.addEventListener('click',function(){
+                box.innerHTML += 'div\n'
+            },false);
+            document.body.addEventListener('click',function(){
+                box.innerHTML += 'body\n'
+            },false);
+            document.documentElement.addEventListener('click',function(){
+                box.innerHTML += 'html\n'
+            },false);
+            document.addEventListener('click',function(){
+                box.innerHTML += 'document\n'
+            },false);
+            window.addEventListener('click',function(){
+                box.innerHTML += 'window\n'
+            },false);
+
+        </script>
+    </body>
+</html>
