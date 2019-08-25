@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn">poi~</button>
+        <script>
+            // DOM2级事件处理程序 addEventListener() IE8不支持，ie attachEvebt()
+            //attachEvebt()内部this指向了window 进行this指向兼容.
+            var btn = document.getElementById('btn');
+            // btn.addEventListener('click',fn,flase);
+            // btn.attachEvent('onclick',fn);
+
+
+            addEvent(btn,'click',function(){
+                console.log(this.innerHTML);
+            });
+
+            function addEvent(target,evebtTyoe,handler){
+                if(target.addEventListener){
+                    //判断是否存在addEventListener属性如果存在则表示支持chrome firfox safari 360 IE9往上...
+                    target.addEventListener(evebtTyoe,handler,false);
+                }else{
+                    //不存在addEventListener属性则表示浏览器为IE8往下版本
+                    //这里需要使用call进行改变this指向
+                    target.attachEvent('on'+ evebtTyoe,function(){
+                        handler.call(target);
+                    });
+                }
+            }
+
+            // var ojb={
+            //     a: 'F_picacho'
+            // }
+
+            // //call可以改变this指向
+            // fn.call(ojb);
+            // function fn(){
+            //     console.log(this.a);
+            // }
+            
+        </script>
+    </body>
+</html>
