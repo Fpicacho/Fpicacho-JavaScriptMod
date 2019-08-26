@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>获取事件对象兼容写法</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            #box{
+                width: 200px;
+                height: 200px;
+                background: palegreen;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="box"></div>
+        <script>
+            var box = document.getElementById('box');
+            //1.event是事件处理程序的第一个参数 ie8不兼容
+            // box.onclick = function(e){
+            //     this.innerHTML = e;
+            // }
+
+            //2.直接使用event变量 但是火狐低版本浏览器不兼容
+            // box.onclick = function(){
+            //     this.innerHTML = event;
+            // }
+
+            // 综合以上两种终极兼容写法
+            box.onclick = function(e){
+                e = e || window.event;
+                this.innerHTML = e;
+            }
+        </script>
+    </body>
+</html>
