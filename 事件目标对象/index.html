@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            .list{
+                width: 200px;
+                height: 200px;
+                background: palegreen;
+                margin: 20px 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="box">
+            <li class="list">1</li>
+            <li class="list">2</li>
+        </ul>
+        <script>
+            var list = document.getElementsByClassName('list');
+            var box = document.getElementById('box');
+            
+            //currentTarget 返回事件所在的节点 正在执行监听函数所绑定的节点
+            // box.onclick = function(e){
+            //     e = e||window.event;
+            //     var list = document.getElementsByTagName('li');
+            //     list[0].innerHTML = e.currentTarget;
+            //     console.log(e.currentTarget);
+            // }
+            
+            //target 返回事件实际目标对象不支持IE8  srcElement支持IE但是不支持低版本forfox
+            box.onclick = function(e){
+                e = e||window.event;
+                console.log(e);
+                console.log(e.target);
+                
+            }
+
+        </script>
+    </body>
+</html>
