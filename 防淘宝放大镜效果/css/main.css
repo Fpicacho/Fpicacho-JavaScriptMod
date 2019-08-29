@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#box{
+    width: 400px;
+    height: 400px;
+    border: solid #dddddd 1px;
+    position: relative;
+    margin: 50px;
+}
+#small_box{
+    width: 400px;
+    height: 400px;
+    position: relative;
+}
+#small_box #mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: rgba(0,255,255,0.3);
+    display: none;
+}
+#big_box{
+    position: absolute;
+    left: 410px;
+    top: 0;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border: #dddddd 1px solid;
+    display: none;
+}
+#big_box img{
+    position: absolute;
+    z-index: 1;
+}

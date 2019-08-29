@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>取消默认行为</title>
+    </head>
+    <body>
+        <!--href="javascript:void(0); 或者javascript: ;-->
+        <a id="link" href="#">wdnmd</a>
+        <script>
+            var link = document.getElementById('link');
+            link.onclick = function (e) {
+                e = e || window.event;
+                // e.preventDefault(); //IE8不兼容
+
+                // e.returnValue = false; //不支持低版本火狐 和 IE9；
+
+                // 兼容性写法
+                if(e.preventDefault){
+                    e.preventDefault();
+                }else{
+                    e.returnValue = false;
+                }
+                alert('123');
+            };
+        </script>
+    </body>
+</html>

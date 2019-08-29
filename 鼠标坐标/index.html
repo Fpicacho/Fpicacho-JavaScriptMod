@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>鼠标坐标</title>
+        <style>
+            #box{
+                width: 200px;
+                height: 200px;
+                background: peru;
+                position: fixed;
+            }
+        </style>
+    </head>
+    <body style="height: 3000px">
+        <div id="box"></div>
+        <script>
+            var box = document.getElementById('box');
+            box.onmousemove = function (e) {
+                e = e || window.event;
+                // console.log(e);
+                // this.innerHTML = `clinetX:${e.clientX},clinetY:${e.clientY}`; //相对于浏览器的X Y距离
+                // this.innerHTML = `screenX:${e.screenX},screentY:${e.screenY}` ;//相对于显示器屏幕的X Y距离
+                // this.innerHTML = `pageX:${e.pageX},pageY:${e.pageY}` ;//相对于页面的X Y距离
+                this.innerHTML = `offsetX:${e.offsetX},offsetY:${e.offsetY}` ;//相对于当前的事件源 X Y距离
+            }
+        </script>
+    </body>
+</html>
