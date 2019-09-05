@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>缓速运动</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #box{
+                position: relative;
+                width: 1920px;
+                height: 100px;
+                border: mediumspringgreen 1px solid;
+            }
+            #block{
+                position: absolute;
+                left: 0;
+                width: 100px;
+                height: 100px;
+                background: peru;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box">
+            <div id="block"></div>
+        </div>
+            <script>
+                window.onload = function () {
+                    var box = document.getElementById('box');
+                    var block = document.getElementById('block');
+                    var time = null, end = 1920;
+                    // 缓速 = 加速度
+                    //加速度 = （结束值 - 起始值）/ 缓动系数
+                    block.onmouseover = function () {
+                        clearInterval(time);
+                        time = setInterval(function () {
+                            if(block.offsetLeft >= box.offsetWidth-100){
+                                clearInterval(time);
+                            };
+                            meent = (end - block.offsetLeft) / 50;
+                            block.style.left = block.offsetLeft + meent + 'px';
+                        },30);
+                    }
+                }
+            </script>
+    </body>
+</html>

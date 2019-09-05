@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#box{
+    height: 80px;
+    width: 300px;
+    background: palegreen;
+    border: 3px solid blue;
+    margin-top: 10px;
+    opacity: 0.3;
+}

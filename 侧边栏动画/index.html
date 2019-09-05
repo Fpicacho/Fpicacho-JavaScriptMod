@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>侧边栏动画</title>
+    </head>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: aquamarine;
+            position: relative;
+            left: -200px;
+        }
+        #box span{
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background: #000000;
+            color: aliceblue;
+            right: -40px;
+            top: 50%;
+            margin-top: -30px;
+            line-height: 60px;
+            text-align: center;
+        }
+    </style>
+    <body>
+        <div id="box">
+            <span>拉开</span>
+        </div>
+        <script>
+            window.onload = function () {
+                var box = document.getElementById('box');
+                var time = null,speed = 0;
+                // box.onmouseover = function () {
+                //     console.log(1);
+                //     clearInterval(time);
+                //     time = setInterval(function () {
+                //         if(box.offsetLeft === 0){
+                //             clearInterval(time);
+                //             return;
+                //         }
+                //         box.style.left = box.offsetLeft + 5 + 'px';
+                //     },30)
+                // };
+                // box.onmouseout = function () {
+                //     console.log(2);
+                //     clearInterval(time);
+                //     time = setInterval(function () {
+                //         if(box.offsetLeft === -200){
+                //             clearInterval(time);
+                //             return;
+                //         }
+                //         box.style.left = box.offsetLeft + -5 + 'px';
+                //     },30)
+                // };
+                box.onmouseover = function () {
+                    startAnimation(this,0);
+                };
+
+                box.onmouseout = function () {
+                    startAnimation(this,-200);
+                };
+
+                function startAnimation(obj, end) {
+                    clearInterval(time);
+                    speed = end > obj.offsetLeft? 5 : -5;
+                    time = setInterval(function () {
+                        if(obj.offsetLeft === end){
+                            clearInterval(time);
+                            return;
+                        }
+                        obj.style.left = box.offsetLeft + speed + 'px';
+                    },30)
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="myAnimation.js"></script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            ul{
+                list-style: none;
+            }
+            a{
+                text-decoration: none;
+            }
+            html,body{
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+            }
+            .container{
+                width: 1190px;
+                height: 100%;
+                margin: 0 auto;
+            }
+            .container div{
+                width: 100%;
+                height: 100%;
+                margin: 0 auto;
+                text-align: center;
+                color: #fff;
+                font-size: 30px;
+            }
+            .aside{
+                position: fixed;
+                width: 40px;
+                right: 20px;
+                top: 300px;
+                font-size: 16px;
+                font-weight: 700;
+                text-align: center;
+            }
+            .aside li{
+                height: 50px;
+                border-bottom: 1px solid #ddd;
+            }
+            .aside li a{
+                color: peru;
+            }
+            .aside li.current{
+                background-color: coral;
+            }
+            .aside li.current a{
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" id="box">
+            <div class="currnet">爱逛好货</div>
+            <div>好店主播</div>
+            <div>品质特色</div>
+            <div>猜你喜欢</div>
+        </div>
+        <ul class="aside" id="aside">
+            <li class="current">
+                <a href="javascript:void(0);">爱逛好货</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">好店主播</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">品质特色</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);">猜你喜欢</a>
+            </li>
+        </ul>
+        <script>
+            window.onload = function () {
+                var box = document.getElementById('box');
+                var allBoxs = box.children;
+                var aside = document.getElementById('aside');
+                var lis = aside.children;
+                var isCilck = false;
+
+                var colors = ['red','pink','purple','blue'];
+                for(var i = 0; i<allBoxs.length; i++){
+                    allBoxs[i].style.background = colors[i];
+                }
+
+                for(var j = 0; j < lis.length; j++){
+                    lis[j].index = j;
+                    lis[j].onclick = function () {
+                        isCilck = true;
+                        for(var k = 0; k < lis.length; k++){
+                            lis[k].className = '';
+                        }
+                        this.className = 'current';
+                        // document.documentElement.scrollTop = this.index * document.body.clientHeight
+                        startMove(document.documentElement,{
+                            'scrollTop':this.index * document.body.clientHeight
+                        },function () {
+                            isCilck = false;
+                        })
+                    }
+                }
+
+                window.onscroll = function () {
+                    if(!isCilck){
+                        var docScrollTop = document.documentElement.scrollTop;
+                        for(var i = 0; i < lis.length; i++){
+                            if(docScrollTop > allBoxs[i].offsetTop){
+                                for(var j = 0; j < allBoxs.length; j++){
+                                    lis[j].className = '';
+                                }
+                                lis[i].className = 'current';
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

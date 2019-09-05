@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="myAnimation.js"></script>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #ad{
+                position: fixed;
+                right: 0;
+                bottom: 0;
+            }
+            #close,#jdadclose{
+                position: absolute;
+                top: 0;
+                right: 0;
+                cursor:pointer;
+                width: 30px;
+                height: 30px;
+                /*background: peru;*/
+                z-index: 10;
+            }
+            #jdad{
+                position: absolute;
+                top: 35%;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body style = "height: 7000px;">
+        <div id="ad">
+            <img src="1053.jpg" alt="">
+            <span id="close"></span>
+        </div>
+        <div id="jdad">
+            <img src="1053.jpg" alt="">
+            <span id="jdadclose"></span>
+        </div>
+        <script>
+            window.onload = function () {
+                var ad = document.getElementById('ad');
+                var close = document.getElementById('close');
+
+                close.onclick = function () {
+                    startMove(ad,{height:200},function () {
+                        startMove(ad,{width:0},function () {
+                            ad.style.display = 'none';
+                        });
+                    });
+                };
+
+                var jdad = document.getElementById('jdad');
+                var jdadTop = jdad.offsetTop;
+                window.onscroll = function () {
+                    var bodysrcoll = document.documentElement.scrollTop;
+                    startMove(jdad,{'top':jdadTop + bodysrcoll});
+                };
+
+                var jdadclose = document.getElementById('jdadclose');
+                jdadclose.onclick = function () {
+                    startMove(jdad,{left:-jdad.offsetWidth},function () {
+                        jdad.style.display = 'none';
+                    });
+                }
+            };
+        </script>
+    </body>
+</html>

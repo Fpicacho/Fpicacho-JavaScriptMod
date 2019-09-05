@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>多值运动</title>
+        <link rel="stylesheet" href="./css/main.css">
+        <script src="js/myAnimation.js"></script>
+    </head>
+    <body>
+        <div id="box"></div>
+        <script>
+            window.onload = function () {
+                var box = document.getElementById('box');
+                box.onmousemove = function () {
+                    startMove(this,{'width':500,'height':500},function () {
+                        startMove(box,{'width':50,'opacity':100})
+                    })
+                }
+            }
+        </script>
+    </body>
+</html>
