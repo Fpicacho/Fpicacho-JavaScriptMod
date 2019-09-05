@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.slider{
+    width: 440px;
+    height: 220px;
+    margin: 100px auto;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.slider .slide_scroll{
+    position: relative;
+    width: 440px;
+    height: 220px;
+}
+.slide_scroll .slide_main{
+    position: relative;
+    width: 440px;
+    height: 220px;
+}
+.slide_main .item{
+    width: 440px;
+    height: 220px;
+    position: absolute;
+}
+.item img{
+    width: 440px;
+    height: 220px;
+}
+
+.slide_scroll span{
+    position: absolute;
+    width: 30px;
+    height: 68px;
+    background: url(../img/icon-slides.png) no-repeat fixed center;
+    /*background: rgba(0,0,0,.5);*/
+    top: 50%;
+    margin-top: -34px;
+    cursor: pointer;
+}
+
+.slide_scroll span.next{
+    right: 0;
+    background-position: -46px 0;
+}
+.slide_scroll span.prev{
+    left: 0;
+    background-position: 0 0;
+}
+
+.slider_index{
+    width: 440px;
+    height: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 700;
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,.5);
+    cursor: pointer;
+    line-height: 30px;
+}
+.slider_index .slider_index_icon{
+    display: inline-block;
+    line-height: 30px;
+    margin: 0 10px;
+}
+.slider_index .slider_index_icon.current{
+    color: red;
+}
